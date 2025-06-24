@@ -12,11 +12,14 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
+# Copy all source files and build configuration
 COPY CMakeLists.txt .
-
-
-# Copy source code after dependencies are downloaded
+COPY include ./include
 COPY src ./src
+COPY tests ./tests
+
+# Configure and build dependencies
+RUN cmake -S . -B build-deps
 
 COPY run_tests.sh ./
 
