@@ -18,9 +18,7 @@ COPY include ./include
 COPY src ./src
 COPY tests ./tests
 
-# Configure and build dependencies
-RUN cmake -S . -B build-deps
-
-COPY run_tests.sh ./
+# Copy build script
+#COPY build_code.sh .
 
 CMD ["sh"] 
